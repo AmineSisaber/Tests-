@@ -1,0 +1,21 @@
+<?php
+
+header("content-type:application/json; charset=utf-8");
+$mysqli= new mysqli("localhost", "root", "EgzJEvFB", "evenementbd");
+if ($mysqli->connect_errno) {
+    printf("Échec de la connexion a la BD evenementbd : %s\n", $mysqli->connect_error);
+    exit();
+}
+$mysqli->set_charset("utf8");
+$evenement = array();
+$results = $mysqli->query("SELECT * FROM evenementbd.evenement WHERE valide= '0' ");
+while($row = $results->fetch_array(MYSQL_ASSOC)) {
+    $evenement[] = $row;
+}
+$result = (object) array (
+    "evenement" => $evenement
+);
+echo json_encode($result);
+$results->close();
+$mysqli->close();
+?>

@@ -1,0 +1,29 @@
+package com.quiz.metier;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.RestController;
+
+
+public class UserService {
+	@RestController
+	public class CandidateRestService {
+
+		@Autowired
+		private CandidateMetier candidatemetier;
+		
+		@Autowired
+		private ConseillereMetier conseilmetier;
+		
+		@Autowired
+		private AffectationMetier affectation;
+
+		@RequestMapping(value="/geo",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+		public ArrayList getCandidate() throws ApiException, InterruptedException, IOException {
+
+			return affectation.GetAffectation();
+		
+		}
+	}
+}

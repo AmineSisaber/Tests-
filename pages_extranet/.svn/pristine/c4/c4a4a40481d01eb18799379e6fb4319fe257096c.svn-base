@@ -1,0 +1,60 @@
+<form id="vForm" role="form" ng-submit="save(event)">
+
+    <div class="" ng-controller="controller">
+
+        <a href="#" class="myButton" ng-click="addCat(row)" >Ajouter une categorie <img src="../image/picto_edit.png"/>
+        </a>
+
+        <br><br>
+        <table st-table="display_records"  st-safe-src="evenement" class="demotbl">
+            <thead>
+            <tr class="head">
+
+                <th st-sort="date" >id</th>
+                <th st-sort="titre_evenement"> Catégories d'événements</th>
+                <th></th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <div class="tab">
+
+                <tr ng-repeat="row in display_records ">
+                    <td class="aleft" width="5%" nowrap>{{row.date}}</td>
+                    <td class="aleft" width="35%">{{row.titre_evenement}}</td>
+
+
+            <td width="12%">
+                <a title="Suprimer" href="#" ng-click="delete(row)">
+                    <img src="../image/delete.png"/>
+                </a>
+
+                <a title="Modifier"
+                   href="#" ng-click="edit(row)">
+                    <img src="../image/picto_edit.png"/>
+                </a>
+            </td>
+            </div>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <div class="centrage">
+
+                <tr>
+                    <td colspan="7" class="text-center" >
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="2"></div>
+                    </td>
+                </tr>
+
+            </div>
+
+            </tfoot>
+        </table>
+
+    </div>
+
+</form>

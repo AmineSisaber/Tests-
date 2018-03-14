@@ -1,0 +1,148 @@
+<div class="page-content-col" ng-controller="View1Ctrl">
+    <!-- BEGIN PAGE BASE CONTENT -->
+    <div class="row">
+        <div class="col-md-6">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-settings font-red"></i>
+                        <span class="caption-subject font-red sbold uppercase">Liste des questions/reponses </span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                            <label class="btn btn-transparent red btn-outline btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                            <label class="btn btn-transparent red btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <button id="sample_editable_1_new" class="btn green"> Ajouter
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group pull-right">
+                                    <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="javascript:;"> Print </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;"> Save as PDF </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;"> Export to Excel </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                        <thead>
+                        <tr>
+                            <th> id</th>
+                            <th> Question</th>
+                            <th> Reponses</th>
+                            <th> Edit</th>
+                            <th> Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="list in lists">
+                            <td>{{list.key}}</td>
+                            <td> {{list.question}}</td>
+                            <td> {{list.reponses}}</td>
+
+                            <td>
+                                <a class="edit" href="javascript:;"> Edit </a>
+                            </td>
+                            <td>
+                                <a class="delete" href="javascript:;"> Delete </a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+
+        <div class="col-md-6 ">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-red-sunglo">
+                        <i class="icon-settings font-red-sunglo"></i>
+                        <span class="caption-subject bold uppercase"> Ajouter une question</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown">
+                                Actions
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-ban"></i> Ban </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="javascript:;"> Make admin </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form role="form" name="questionform">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input class="form-control spinner" type="text" placeholder="Process something"
+                                       ng-model="question.q" ng-minlength="1" required>
+
+                                <label>Reponse 1 </label>
+                                <input class="form-control spinner" type="text" placeholder="Process something"
+                                       ng-model="question.q1" ng-minlength="1" required>
+
+                                <label>Reponse 2</label>
+                                <input class="form-control spinner" type="text" placeholder="Process something"
+                                       ng-model="question.q2" ng-minlength="1" require>
+
+                                <label>Reponse 3</label>
+                                <input class="form-control spinner" type="text" placeholder="Process something"
+                                       ng-model="question.q3" ng-minlength="1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn blue" ng-click="addQuestion(question)">Submit</button>
+                            <button type="button" class="btn default">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,218 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+    <script src="../js/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angular.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angular-animate.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angular-aria.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angular-messages.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angucomplete-alt.min.js" type="text/javascript"></script>
+    <script src="../js/angular/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="../js/ngDialog/js/ngDialog.min.js" type="text/javascript"></script>
+    <script src="../js/smart-table/smart-table.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../js/ngDialog/css/ngDialog.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../js/ngDialog/css/ngDialog-theme-default.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../js/bootstrap/css/bootstrap-theme.css" type="text/css" media="screen"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="./js/appv.js" type="text/javascript"></script>
+    <script src="../js/angular-smart-table/dist/smart-table.js"></script>
+    <link rel="stylesheet" href="./css/cssValidation.css " type="text/css" media="screen,print"/>
+    <link rel="stylesheet" href="./css/catcss.css" type="text/css" media="screen,print"/>
+</head>
+
+<body ng-app="appv">
+
+    <div class="" ng-controller="controller">
+
+        <ul id="menu-bar">
+
+            <li class="active"><a  href="#" ng-click="getDataNonValider()" ng-style="myObjNon" > Journée non validèe</a></li>
+
+            <li> <a href="#" ng-click="getAlldataValider()" ng-style="myObjValid" >Journée validèe</a></li>
+
+            <li><a href="#" ng-click="getAlldata()" ng-style="myObjAll" >Toutes les journées découvertes</a></li>
+
+            <li><a href="#" ng-click="getCategoerie()" ng-style="myObjcat" >Gerer les catégories </a></li>
+
+        </ul>
+
+
+        <div>
+
+
+        </div>
+
+
+        <br><br><br>
+
+
+        <div ng-show="bol==1">
+
+            <!--<div class="container">-->
+                <!--<div class="jumbotron" style="background: #6e002f">-->
+                    <!--<h1>Bootstrap Tutorial</h1>-->
+
+
+          <table st-table="display_records"  st-safe-src="evenement" >
+
+                    <thead>
+
+                    <!--<div class="form__field">-->
+                            <tr >
+                                <th colspan="100%">
+                                <input st-search placeholder=" Que cherchez-vous ? " class="input-sm form-control" type="search"/></th>
+                            </tr>
+                    <!--</div>-->
+
+
+
+                    <tr class="head">
+
+                            <th st-sort="date" nowrap > Date</th>
+
+
+
+                            <th st-sort="titre_evenement" nowrap >Événement
+                            </th>
+
+
+
+                            <th st-sort="nom_lieu" nowrap>Lieu événement
+                            </th>
+
+
+                        <th st-sort="adresse" nowrap >Adresse</th>
+
+                        <th st-sort="codepostal" nowrap >Code postal</th>
+
+                        <th st-sort="ville" nowrap>Ville</th>
+
+                        <th st-sort="tel" nowrap >Tel</th>
+
+                        <th st-sort="email" nowrap>Email</th>
+
+                        <th></th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+
+                    <tr ng-repeat="row in display_records ">
+
+                    <!--<tr dir-paginate="row in evenement| filter:search |orderBy: orderByPredicate : orderByReverse|itemsPerPage:10">-->
+                        <td class="aleft" width="3%" nowrap>{{row.date}}</td>
+                        <td class="aleft">{{row.titre_evenement}}</td>
+                        <td class="aleft">{{row.nom_lieu}}</td>
+                        <td class="aleft ">{{row.adresse}}</td>
+                        <td class="aleft" width="5%">{{row.codepostal}}</td>
+                        <td class="aleft" width="7%" nowrap>{{row.ville}}</td>
+                        <td class="aleft" width="5%" nowrap>{{row.tel}}</td>
+                        <td class="aleft" width="8%">{{row.email}}</td>
+
+                        <td  width="5%" nowrap>
+                            <a title="Valider" ng-show="row.valide==0" href="#" ng-click="update(row,$index)">
+                                <img src="./assert/image/va.png"/>
+                            </a>
+                            <a title="Dévalider" ng-show=" row.valide==1" href="#" ng-click="devalider(row,$index)">
+                                <img src="./assert/image/deva.png"/>
+                            </a>
+                            <a title="Modifier" href="#" ng-click="edit(row)">
+                                <img src="../image/editBackEnd.png"/>
+                            </a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+
+
+                    <tr>
+
+                        <td colspan="7" class="text-center;centrage" >
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="2"></div>
+                        </td>
+
+                    </tr>
+
+
+
+                    </tfoot>
+
+                </table>
+        </div>
+
+   <div ng-show="bol==0">
+            <table st-table="display_records"  st-safe-src="categorie" >
+
+                <thead>
+                <tr class="head">
+
+                    <th colspan="100%" class="form__field">
+                        <input st-search placeholder=" Que cherchez-vous ? " class="input-sm form-control" type="search"/>
+                    </th>
+                        <th st-sort="date" nowrap >id</th>
+
+                        <th st-sort="titre_evenement" nowrap > Catégorie </th>
+
+
+
+              <th title="Modifier" href="#" ng-click=" addCat(row.nom)">
+                      <img src="../image/add.png"/>
+
+              </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr ng-repeat="row in display_records ">
+
+                <td class="aleft" width="3%" nowrap>{{row.code}}</td>
+                <td class="aleft">{{row.nom}}</td>
+
+                <td  width="5%" nowrap>
+
+                    <div ng-show="row.etat==0">
+                    <a title="Modifier" href="#" ng-click="desactivateCategoerie(row)">
+                        <img src="../image/validate.png"/>
+                    </a>
+
+                    </div>
+
+
+                    <div ng-show="row.etat==1">
+                    <a title="Modifier" href="#" ng-click="desactivateCategoerie(row)">
+                        <img src="../image/delete.png"/>
+                    </a>
+                    </div>
+
+                </td>
+
+
+                </tbody>
+
+                <tfoot>
+
+
+
+                    <tr class="centrage">
+                        <td colspan="10" class="text-center" >
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5000"></div>
+                        </td>
+                    </tr>
+
+                </tfoot>
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

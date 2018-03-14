@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="./css/mycss.css" type="text/css" media="screen,print"/>
+<meta charset="UTF-8">
+
+<form ng-app="app" ng-submit="udpatechange(evenement)"id="contact">
+
+    <div class="container">
+        <div class="head">
+            <h2></h2>
+        </div>
+        <input type="text" name="titre" placeholder="Titre evenement..."
+               class="form-first-name form-control" id="titre"
+               ng-model="event.titre" ng-minlength="1"
+               ng-maxlength="100"
+               required>
+
+        <input type="text" name="nomlieu" placeholder="Nom du lieu d'evenement..."
+               class="form-first-name form-control" id="nomlieu"
+               ng-model="event.nomlieu" ng-minlength="1"
+               ng-maxlength="50"
+               required>
+
+        <input type="text" name="adre" placeholder="Adresse evenement..."
+               class="form-first-name form-control" id="adre"
+               ng-model="event.adre" ng-minlength="1"
+               ng-maxlength="255"
+               required>
+
+        <input type="text" name="codep" placeholder="Code postale..."
+               class="form-first-name form-control" id="codep"
+               ng-model="event.codep" ng-minlength="1"
+               ng-maxlength="10"
+               required>
+        <input type="text" name="ville" placeholder="Ville..."
+               class="form-first-name form-control" id="ville"
+               ng-model="event.ville" ng-model="event.adre" ng-minlength="1"
+               ng-maxlength="30"
+               required>
+
+        <input style="z-index: 150000" name="date" placeholder="Date de la journée..."
+               id="date"
+               ng-model="event.date" moment-picker="ctrl.dateFormatted" format="DD/MM/YYYY"
+               class="form-first-name form-control" ng-minlength="1"
+               ng-maxlength="30"
+               required>
+
+        <input type="text" name="tel" placeholder="Telephone..."
+               class="form-first-name form-control" id="tel"
+               ng-model="event.tel" ng-minlength="1"
+               ng-maxlength="20"
+               required>
+
+        <input type="email" name="email" placeholder="Email..."
+               class="form-email form-control" id="email"
+               ng-model="event.email" ng-minlength="1"
+               ng-maxlength="60"
+               required>
+
+        <button class="btn btn-primary btn-lg" id="enregistrer" type="submit">Enregistrer
+        </button>
+    </div>
+
+</form>
+<script>
+    $(function () {
+// validate
+        $("#contact").validate({
+// Set the validation rules
+            rules: {
+                name: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: "required",
+            },
+// Specify the validation error messages
+            messages: {
+                name: "Please enter your name",
+                email: "Please enter a valid email address",
+                message: "Please enter a message",
+            },
+// submit handler
+            submitHandler: function (form) {
+//form.submit();
+                $(".message").show();
+                $(".message").fadeOut(4500);
+            }
+        });
+    });
+</script>

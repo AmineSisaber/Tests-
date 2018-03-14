@@ -1,0 +1,15 @@
+package com.quiz.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+
+@Entity
+public class Resultats implements Serializable{
+@id
+@GeneratedValue
+	int id ; 
+	double resultats ; 
+	
+}

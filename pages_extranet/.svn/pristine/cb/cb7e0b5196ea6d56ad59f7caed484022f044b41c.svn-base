@@ -1,0 +1,128 @@
+    <form id="vForm" role="form" ng-submit="save(event)" ng-controller="controller">
+        <div class="head" style="text-align: center;font-family: 'Helvetica', Arial, sans-serif;color: #e04580" >
+            <h2> Nouvel évenement </h2>
+        </div>
+        <table>
+    <tr>
+
+        <Div   class = "panel-heading">
+            <H3   class = "panel-title"> Sélectionner la catégorie </h3>
+        </Div>
+
+            </select></td>
+
+<td class= "filter-option pull-left" style="text-align: center;font-family: 'Helvetica', Arial, sans-serif;color: #d43f3a" >
+
+    <select class="form-control" ng-model="event.categorie">
+
+    <option ng-repeat="row in categorie" required>{{row.nom}}</option>
+
+</select></td>
+
+
+    </tr>
+            <tr>
+                <td>
+                    <input type="text" name="titre" placeholder="Titre evenement..."
+                           class="form-first-name form-control" id="titre"
+                           ng-model="event.titre" ng-minlength="1"
+                           ng-maxlength="100"
+                           required>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" name="nomlieu" placeholder="Nom du lieu d'evenement..."
+                           class="form-first-name form-control" id="nomlieu"
+                           ng-model="event.nomlieu" ng-minlength="1"
+                           ng-maxlength="50"
+                           required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" name="adre" placeholder="Adresse evenement..."
+                           class="form-first-name form-control" id="adre"
+                           ng-model="event.adre" ng-minlength="1"
+                           ng-maxlength="255"
+                           required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" name="codep" placeholder="Code postale..."
+                           class="form-first-name form-control" id="codep"
+                           ng-model="event.codep" ng-minlength="1"
+                           ng-maxlength="10"
+                           required>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" name="ville" placeholder="Ville..."
+                           class="form-first-name form-control" id="ville"
+                           ng-model="event.ville" ng-model="event.adre" ng-minlength="1"
+                           ng-maxlength="30"
+                           required>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="z-index:15000">
+                    <adm-dtp ng-model="event.date" option='{calType == "gregorian"}' ></adm-dtp>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" name="tel" placeholder="Telephone..."
+                           class="form-first-name form-control" id="tel"
+                           ng-model="event.tel">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="email" name="email" placeholder="Email..."
+                           class="form-email form-control" id="email"
+                           ng-model="event.email" ng-minlength="1"
+                           ng-maxlength="60"
+                           required>
+
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td>
+
+                    <button class="butt" id="enregistrer" type="submit">Enregistrer
+                    </button>
+                </td>
+            </tr>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="footer-border"></div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+       </table>
+    </form>
+
+

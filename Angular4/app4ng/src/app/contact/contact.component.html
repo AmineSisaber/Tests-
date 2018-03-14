@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <h3>Informations sur les contacts </h3>
+        <ul class="list-group">
+          <li class="list-group-item">Nom : <strong>{{info.nom}}</strong></li>
+          <li class="list-group-item">Prenom : <strong>{{info.adresse}} </strong> </li>
+          <li class="list-group-item">Tel : <strong>{{info.tel}} </strong> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <h3>Contact Contact </h3>
+        <ul class="list-group">
+          <li class="list-group-item">Nom : <strong>{{info.nom}}</strong></li>
+          <li class="list-group-item">Prenom : <strong>{{info.adresse}} </strong> </li>
+          <li class="list-group-item">Tel : <strong>{{info.tel}} </strong> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="onAddComentaire(f.value)">
+    <div class="form-group">
+      <label class="col-2 col-form-label"></label>
+      <input required name="message" ngModel type="text" />
+      <button [disabled]="!f.valid" type="submit" name="coment" class="btn btn-info" [(ngModel)]="comentaire" ngDefaultControl>Ajouter Comentaire</button>
+    </div>
+  </form>
+
+</div>

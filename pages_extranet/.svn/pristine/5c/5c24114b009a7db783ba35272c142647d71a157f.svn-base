@@ -1,0 +1,50 @@
+<table>
+	<tr>
+		<th>Civilité</th>
+		<td>{{ prospect.civilite }}</td>
+	</tr>
+	<tr>
+		<th>Nom</th>
+		<td>{{ prospect.nom }}</td>
+	</tr>
+	<tr>
+		<th>Prenom</th>
+		<td>{{ prospect.prenom }}</td>
+	</tr>
+	<tr>
+		<th>Adresse</th>
+		<td>{{ prospect.adresse }}</td>
+	</tr>
+	<tr>
+		<th>Ville</th>
+		<td>{{ prospect.ville }}</td>
+	</tr>
+	<tr>
+		<th>Pays</th>
+		<td>{{ prospect.pays }}</td>
+	</tr>
+	<tr>
+		<th>E-mail</th>
+		<td>{{ prospect.email }}</td>
+	</tr>
+	<tr>
+		<th>Téléphone</th>
+		<td>{{ prospect.tel }}</td>
+	</tr>
+	<tr>
+		<th>Date de création</th>
+		<td>{{ prospect.datesoumission }}</td>
+	</tr>
+	<tr>
+		<th>Statut</th>
+		<td>{{ prospect.statu }}</td>
+	</tr>
+	<tr>
+		<th>Commentaire</th>
+		<td>
+			<span ng-repeat="line in (prospect.commentaire | newlines)">
+			    {{line}}<br>
+			</span>
+		</td>
+	</tr>
+</table>

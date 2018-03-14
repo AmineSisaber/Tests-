@@ -1,0 +1,20 @@
+package com.quiz;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.userdetails.User;
+
+import com.quiz.dao.UsersRepository;
+import com.quiz.entity.Users;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+		UsersRepository userRep = ctx.getBean(UsersRepository.class);
+		userRep.save(new Users("amine", "123");
+
+	}
+}

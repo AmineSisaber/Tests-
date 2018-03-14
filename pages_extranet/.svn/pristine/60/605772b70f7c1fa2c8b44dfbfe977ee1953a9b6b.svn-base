@@ -1,0 +1,15 @@
+#main {
+    max-width:960px;
+    margin:auto;
+    position:relative;
+    background: coral;
+}
+#menu {
+    width:240px;
+    position:absolute;
+    background: c;
+}
+#contenu {
+    margin-left:245px;
+    min-height:150px;
+}

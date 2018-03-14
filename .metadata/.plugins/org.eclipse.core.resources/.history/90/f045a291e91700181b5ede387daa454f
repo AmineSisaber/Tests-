@@ -1,0 +1,8 @@
+package com.quiz.entity;
+
+public class Users {
+
+	int id ; 
+	String nom, prenom ;
+	
+}

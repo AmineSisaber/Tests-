@@ -1,0 +1,12 @@
+package com.quiz.dao;
+import java.util.List;
+
+
+import org.springframework.stereotype.Repository;
+
+import com.quiz.entity.Users;
+
+@Repository
+public class UserRepository extends JpaRepository<Users,Long> {
+
+}

@@ -1,0 +1,186 @@
+<div style="padding-top: 30px;" class="equipe">
+    <div class="line" ng-show="isSecteur" style="margin-bottom: 10px;">
+        <div style="margin: 5px 0; padding-left : 2px; color: #707172; font-weight: bold; font-size: 12px;">{{ language.SEARCH_ANIM }}</div>
+        <div class="row" row-width="25">
+            <angucomplete-alt id="members"
+                  minlength="1"
+                  pause="400"
+                  remote-url="./script/animatrice.php"
+                  remote-url-request-formatter="dataFormatFn"
+                  remote-url-data-field="animatrice"
+                  remote-url-response-formatter="formatResult"
+                  title-field="name"
+                  selected-object="animSelected"
+                  input-changed="inputChanged" 
+                  input-class=""></angucomplete-alt>
+        </div>
+    </div>
+    <!-- KPI taux d'active -->
+   	<div class="graphic-title">{{ language.TITLE_ACTIVE }}</div>
+    <div id="graphic">
+    	<div style="border: 3px solid #64ff2b; left: 20%; top:-6px; margin-left: 4px; border-radius: 6px; width: 19.5%; position: absolute; height: 300px;">
+    	</div>
+<!--     	<div> -->
+<!--     		<div ng-repeat="chart in charts" class="dayBar"><span>{{chart.date * 1000 | date:'d'}}</span></div> -->
+<!--     		<div style="clear:both"></div> -->
+<!--     	</div> -->
+    	<div class="monthBar">
+	    	<div class="first month" row-width="lastDayMonth*100/35"><span>{{ charts[0] ? charts[0].date * 1000 : '' | date:'MMMM' }}</span></div>
+	   		<div class="second month" row-width="(35-lastDayMonth)*100/35"><span>{{ dateEnd ? dateEnd * 1000 : '' | date:'MMMM' }}</span></div>
+	   		<div style="clear:both"></div>
+    	</div>
+<!--     	<div class="monthBar"> -->
+<!--     		<div>{{ charts[weekMonthChange].date * 1000 | date:'MMMM' }}</div>&nbsp; -->
+<!--     	</div> -->
+	    <div class="graphic" ng-repeat="chart in charts | limitTo : 5">
+	    	<div class="chart-title" title="{{ chart.date * 1000 | date:'EEEE d MMMM' }}">{{ chart.week == weeks[currWeek].week ? language.CURRENT_WEEK : (language.W + chart.week) }}</div>
+	    	<div class="chartjs-legend noselect" id="chartjs-legend-{{ $index }}"></div>
+	    	<div class="chart">
+		    	<canvas class="chart chart-doughnut"
+				  chart-data="chart.data" chart-labels="chart.labels" chart-options="chart.options">
+				</canvas>
+				<div class="chartjs-effectif noselect" id="chartjs-effectif-{{ $index }}">
+					{{ effectif[$index] }}<img src="./img/picto_girl.png" />
+				</div>
+				<div style="margin-top: 10px;">
+				<div class="graphic-left">
+	    			<div class="chart-title">{{ country.trim() == "FR" ? country : "INTERNATIONAL" | language }}</div>
+		    		<div class="chart-circle">{{ chart.avg }}%</div>
+	    		</div>
+	    		<div class="graphic-right">
+	    			<div class="chart-title">{{ country.trim() == "CH" ? language.TOP10CH : language.TOP10}}</div>
+		    		<div class="chart-circle">{{ chart.avgTop }}%</div>
+		    	</div>
+		    	</div>
+			</div>
+	    </div>
+	    <div style="clear: both;"></div>
+    </div>
+    <!-- Ateliers par semaine -->
+    <div ng-show="demons2">
+    	<div class="line small" style="text-align:center; font-weight: bold;">
+            {{ language.TOTAL_WEEK_COUNT }}
+        </div>
+        <div class="line small" style="height: 16px; margin-top: 5px; padding-top: 2px;">
+        	<div style="border: 3px solid #64ff2b; margin-left:-2px; border-radius: 6px; position: absolute; z-index: 100; top: -4px; padding-bottom: 17px;" row-size row-size-left="25 + ( currWeek * 75/(weekCount))" row-size-width="71/weekCount">
+			    <div class="line small" ng-repeat="(key, demo) in demons2">
+			    </div>
+			</div>
+            <div class="row" row-width="25">&nbsp;</div>
+            <div ng-repeat="(key, value) in weeks | limitTo: weekCount" class="row small" row-width="75/weekCount"><div class="head" ng-class="{bold: key==currWeek2}">{{ value.week }}</div></div>
+        </div>
+        <div class="line small" ng-repeat="(key, demo) in demons2 | orderObjectBy:'head':'name'">
+            <div class="row small" row-width="25">
+                <div class="cell" ng-click="openDemo(demo.id, demo.name.trim());" title="{{demo.name.trim()}}" style="z-index:200;">{{ demo.name | limitTo: 24 }}{{demo.name.trim().length > 24 ? '...' : ''}}</div>
+            </div>
+            <div ng-repeat="(key, week) in demo.week | limitTo: weekCount" class="row small" ng-class="{planified: !weekRealised(key) &&  key!=currWeek2}" row-width="75/weekCount">
+                <div class="cell" ng-class="{past: weekRealised(key), current: key==currWeek2, zero: (week.planified + week.realized)==0}">
+                    {{ week.realized + week.planified }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ateliers par mois -->
+    <div class="seasonChoice" ng-show="displayNextSeason">
+	    <div ng-click="seasonNext(false)" ng-class="{currentSeason: currSeason}">{{ language.CURRENT_SEASON }}</div>
+	    <div ng-click="seasonNext(true)" ng-class="{currentSeason: !currSeason}">{{ language.NEXT_SEASON }}</div>
+    </div>
+    <div class="seasonNoChoice" ng-hide="displayNextSeason"></div>
+    <div ng-show="demons">
+        <div class="line small" style="text-align:center; font-weight: bold;font-size: 13px; margin-top: 5px;">
+            <div class="row" row-width="25">&nbsp;</div>
+            <div class="row" row-width="(75/(monthCount+3))*monthCount">{{ language.TOTAL_MONTH_COUNT }}</div>
+            <div class="row" row-width="(75/(monthCount+3))*2">{{ language.TOTAL }} {{ saison | language }}</div>
+            <div class="row" row-width="(75/(monthCount+3))">{{ saisonHisto | language }}</div>
+        </div>
+        <div class="line head" style="height: 18px; padding-top: 5px;">
+			<div ng-show="currSeason" style="border: 3px solid #64ff2b; margin-left:-2px; border-radius: 6px; position: absolute; z-index: 100; top: -4px;" row-size row-size-left="25 + ( currMonth * 75/(monthCount+3))" row-size-width="73/(monthCount+3)">
+			    <div class="line" ng-repeat="(key, demo) in demons">
+			    </div>
+			    <div class="line" style="margin-top: 60px;">&nbsp;</div>
+			</div>
+            <div class="row" row-width="25">&nbsp;</div>
+            <div ng-repeat="(key, value) in months" class="row" row-width="75/(monthCount+3)">
+            	<div class="head" ng-class="{bold: key==currMonth && currSeason}">{{ value.month | month}}</div>
+            </div>
+            <div class="row total" row-width="75/(monthCount+3)"><div class="head">{{ language.REALIZED_SHORT }}</div></div>
+            <div class="row" row-width="75/(monthCount+3)"><div class="head">{{ language.PLANIFIED_SHORT }}</div></div>
+            <div class="row" row-width="75/(monthCount+3)"><div class="head">{{ language.REALIZED_HISTO_SHORT }}</div></div>
+        </div>
+<!--         <div class="line histo first"> -->
+<!--             <div class="row" row-width="25"> -->
+<!--                 <div class="cell histo">{{ language.TOTAL + ' ' + language.REALIZED + ' ' + language.HISTO_SHORT}} (&eacute;quipe actu)</div> -->
+<!--             </div> -->
+<!--             <div ng-repeat="(key, month) in months" class="row" row-width="75/(monthCount+3)"> -->
+<!--                 <div class="cell histo"> -->
+<!--                     {{ month.histo }} -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+         <div class="line histo first">
+            <div class="row" row-width="25">
+                <div class="cell histo">{{ language.TOTAL + ' ' + language.REALIZED }} {{ saisonHisto | language }}</div>
+            </div>
+            <div ng-repeat="(key, month) in months" class="row" row-width="75/(monthCount+3)">
+                <div class="cell histo">
+                    {{ month.histo2 }}
+                </div>
+            </div>
+        </div>
+        <div class="line" style="margin-bottom: 6px;">
+            <div class="row" row-width="25">
+                <div class="cell">{{ language.TOTAL }} {{ saison | language }}</div>
+            </div>
+            <div ng-repeat="(key, month) in months" class="row" ng-class="{planified: !monthRealised(key) &&  key!=currMonth}" row-width="75/(monthCount+3)">
+                <div ng-show="key!=currMonth || !currSeason" class="cell" ng-class="{past: monthRealised(key), zero: (month.planified + month.realized)==0}">
+                    {{ month.realized + month.planified }}
+                </div>
+                <div ng-show="key==currMonth && currSeason" style="position: relative;" class="cell current">
+                    <div class="past" ng-class="{zero: month.realized==0}" style="float:left; width: 50%;">{{ month.realized }}</div>
+                    <div class="current" ng-class="{zero: month.planified==0}" style="float:right; width: 50%;">{{ month.planified }}</div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+             <div class="row total" row-width="75/(monthCount+3)">
+                <div class="cell past" ng-class="{zero: realizedSum==0}">{{ realizedSum }}</div>
+            </div>
+            <div class="row" row-width="75/(monthCount+3)">
+                <div class="cell" ng-class="{zero: planifiedSumSum==0}">{{ planifiedSum }}</div>
+            </div>
+            <div class="row" row-width="75/(monthCount+3)">
+                <div class="cell past histo" ng-class="{zero: histoSum==0}">{{ histoSum }}</div>
+            </div>
+        </div>
+        <div class="line" ng-repeat="(key, demo) in demons | orderObjectBy:'head':'name'">
+            <div class="row" row-width="25">
+                <div class="cell" title="{{demo.name.trim()}}" ng-click="openDemo(demo.id, demo.name.trim());" style="z-index:200;">{{ demo.name | limitTo: 24 }}{{demo.name.trim().length > 24 ? '...' : ''}}</div>
+            </div>
+            <div ng-repeat="(key, month) in demo.month" class="row" ng-class="{planified: !monthRealised(key) &&  key!=currMonth}" row-width="75/(monthCount+3)">
+                <div ng-show="key!=currMonth || !currSeason" class="cell" ng-class="{past: monthRealised(key), zero: (month.planified + month.realized)==0}">
+                    {{ month.realized + month.planified }}
+                </div>
+                <div ng-show="key==currMonth && currSeason" style="position: relative;" class="cell current">
+                    <div class="past" ng-class="{zero: month.realized==0}" style="float:left; width: 50%;">{{ month.realized }}</div>
+                    <div class="current" ng-class="{zero: month.planified==0}" style="float:right; width: 50%;">{{ month.planified }}</div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+             <div class="row total" row-width="75/(monthCount+3)">
+                <div class="cell past" ng-class="{zero: demo.realizedSum==0}">
+                    {{ demo.realizedSum }}
+                </div>
+            </div>
+            <div class="row" row-width="75/(monthCount+3)">
+                <div class="cell" ng-class="{zero: demo.planifiedSum==0}">
+                    {{ demo.planifiedSum }}
+                </div>
+            </div>
+            <div class="row" row-width="75/(monthCount+3)">
+                <div class="cell past histo" ng-class="{zero: demo.histoSum==0}">
+                    {{ demo.histoSum }}
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 40px; font-size: 12px; font-style: italic; padding: 5px;">{{ language.DATE_UPDATED }} {{ dateLoading*1000 | date:language.FORMAT_DATE}}</div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+package com.quiz.entity;
+
+public class users {
+
+	private int id; 
+	private String psseudo; 
+	private int psw;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getPsseudo() {
+		return psseudo;
+	}
+	public void setPsseudo(String psseudo) {
+		this.psseudo = psseudo;
+	}
+	public int getPsw() {
+		return psw;
+	}
+	public void setPsw(int psw) {
+		this.psw = psw;
+	} 
+
+	
+}

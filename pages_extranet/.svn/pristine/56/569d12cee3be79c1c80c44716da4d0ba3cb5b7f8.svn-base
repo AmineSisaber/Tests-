@@ -1,0 +1,101 @@
+
+<div>
+
+    <form ng-app="app" ng-submit="udpatechange(evenement)">
+        <table>
+            <tr>
+                <td>
+                    <input class="form-control" name="Titre evenement..."
+                           placeholder="Titre evenement .." id="titre_evenementt" value="{{$evenement.titre_evenement}}"
+                           ng-model="evenement.titre_evenement" ng-minlength="1"
+                           ng-maxlength="100"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" name="Nom du lieu d evenement..."
+                           placeholder="Lieu evenement .." id="nomlieu" value="{{$evenement.nom_lieu}}"
+                           ng-model="evenement.nom_lieu" ng-minlength="1"
+                           ng-maxlength="50"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" name="adresse .... "
+                           placeholder="Adresse evenement .." id="Adresse" value="{{evenement.adresse}}"
+                           ng-model="evenement.adresse" g-minlength="1"
+                           ng-maxlength="255"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="codep" placeholder="Code postal..."
+                           class="form-first-name form-control" id="codep"
+                           value="{{evenement.codepostal}}" ng-model="evenement.codepostal" ng-minlength="1"
+                           ng-maxlength="10"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="ville" placeholder="Ville..."
+                           class="form-first-name form-control" id="ville"
+                           value="{{evenement.ville}}" ng-model="evenement.ville" ng-minlength="1"
+                           ng-maxlength="30"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" name="date"
+                           placeholder="Date Format JJ/MM/AAAA " id="date" value="{{evenement.date}}"
+                           ng-model="evenement.date" ng-minlength="1"
+                           ng-maxlength="30"
+                           required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="tel" placeholder="Telephone..."
+                           class="form-first-name form-control" id="tel"
+                           value="{{evenement.tel}}" ng-model="evenement.tel">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-first-name form-control"
+                           type="text" name="email" placeholder="Email..." id="email" value="{{evenement.email}}"
+                           value="{{evenement.email}}"
+                           ng-model="evenement.email" ng-minlength="1"
+                           ng-maxlength="60"
+                           required></td>
+            </tr>
+
+            <tr>
+                <td><input class="form-first-name form-control"
+                           type="text" name="longitude" placeholder="Categorie..." id="longitude"
+                           ng-model="evenement.categorie" ng-minlength="1" value={{evenement.categorie}}
+                           ng-maxlength="60"
+                           required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button title="Enregistrer les modifications" class="butt" type="submit" ng-click="udpatechange(evenement)">
+                        Enregistrer
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

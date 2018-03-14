@@ -1,0 +1,16 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: sisaber
+ */
+header("content-type:application/json; charset=utf-8");
+
+
+$mysqli = new mysqli("127.0.0.1", "root", "EgzJEvFB", "evenementbd");
+if ($mysqli->connect_errno) {
+    printf("Échec de la connexion a la BD evenementbd : %s\n", $mysqli->connect_error);
+    exit();
+}
+$mysqli->set_charset("utf8");
+
+?>

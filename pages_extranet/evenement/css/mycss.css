@@ -1,0 +1,165 @@
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 60%;
+    box-sizing: content-box;
+    line-height: inherit;
+    font-size: inherit;
+    padding: 30px;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 5px;
+}
+
+.ngdialog td {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 40px;
+    text-align: center;
+
+}
+.st-sort-ascent:before {
+    content: '\25B2';
+}
+
+.st-sort-descent:before {
+    content: '\25BC';
+}
+
+th[st-sort]:hover { cursor: pointer; }
+
+body {
+    font-family: open-sans;
+    font-size: 14px;
+}
+
+div#container {
+    width : 964px; margin: 0 auto;
+}
+
+thead tr.head th {
+    font-weight: bold;
+    color: #fdfdfd;
+    border: 1px solid #dfdfdf;
+    border-right: 0;
+    border-bottom: 0;
+    border-top: 0;
+    text-align: center;
+    padding: 6px;
+    vertical-align: middle;
+}
+
+thead tr.head{
+    background-color: #8e8e8e;
+}
+
+tbody td {
+    border: 1px solid #dfdfdf;
+    text-align: center;
+    padding: 6px;
+    vertical-align: middle;
+}
+
+table { width: 100%; }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover {
+    background-color: #e04580;
+    border-color: #e04580;
+}
+
+.pagination>li>a:hover {color: #e04580; }
+
+.pagination > li > a {
+    color: #e04580;
+}
+
+div.search { width : 300px; padding : 10px 0; }
+
+input[st-search] {
+    padding : 2px 4px; color: #555; width: 100%;
+}
+
+td.aleft { text-align: left;}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #555;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #555;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #555;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #555;
+}
+
+.butt {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 35%;
+    background: #e04580;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+
+}
+.centrage {text-align: center;}
+
+.myButton {
+    background-color:#ff5bb0;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border:1px solid #ee1eb5;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    font-style:italic;
+    padding:7px 16px;
+    text-decoration:none;
+}
+.myButton:hover {
+    background-color:#ff4d97;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+ .datepickerdemo md-content {
+     padding-bottom: 200px;
+ }
+.datepickerdemo .validation-messages {
+    font-size: 11px;
+    color: darkred;
+    margin: 10px 0 0 25px;
+}
+.datepickerdemo md-content {
+    padding-bottom: 200px;
+}
+.datepickerdemo .validation-messages {
+    font-size: 11px;
+    color: darkred;
+    margin: 10px 0 0 25px;
+}
+
+
+
+
+

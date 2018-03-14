@@ -1,0 +1,10 @@
+package com.quiz.entity;
+
+public class users {
+
+	private int id; 
+	private String psseudo; 
+	private int psw; 
+
+	
+}

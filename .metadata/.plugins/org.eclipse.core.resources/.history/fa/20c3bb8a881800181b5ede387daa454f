@@ -1,0 +1,16 @@
+package com.quiz.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Resultats implements Serializable{
+
+	
+	
+	
+	
+	
+	
+}

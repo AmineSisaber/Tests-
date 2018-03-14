@@ -1,0 +1,156 @@
+div.perso div.row {
+    float:left;
+    text-align: center;
+    position: relative;
+    font-size: 15px;
+}
+div.perso div.head {
+    padding-bottom: 5px;
+}
+div.perso div.cell {
+    border-left: 1px solid #FFFFFF;
+    padding: 12px 0;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+div.perso div.row.planified {
+    padding-top:62px;
+}
+div.perso div.row:first-child div.label {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+div.perso div.planified:last-child div.cell {
+    border-top-right-radius: 6px;
+    border-right-width: 1px;
+}
+div.perso div.planified:last-child div.cell.histo {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 6px;
+    border-right-width: 1px;
+}
+div.perso div.cell.past.last {
+    border-top-right-radius: 6px;
+}
+div.perso div.row.small {
+    font-size: 12px;
+}
+div.perso div.row.small div.cell {
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 17px;
+}
+div.perso div.row.small.planified {
+    padding-top:29px;
+}
+
+div.perso div.line {
+    width:85%;
+    padding: 2px 0;
+    margin: 10px auto; 
+    clear:both;
+    position: relative;
+    padding-left: 20px;
+    font-size: 15px;
+}
+div.perso div.cell.histo {
+    padding: 0;
+    font-size: 15px;
+    line-height: 22px;
+    height: 22px;
+}
+div.perso div.cell.label {
+    height: 60px; 
+    padding: 0; 
+    font-size: 12px; 
+    text-align: center; 
+    left:-21px; 
+    width:20px; 
+    position: absolute;
+}
+div.perso div.small div.cell.label {
+    height: inherit;
+    font-weight: normal;
+    width: 14px;
+    left: -15px;
+    font-size: 11px;
+    /*padding: 0;*/
+}
+div.perso div.row.small div.cell.histo {
+    padding: 0;
+    font-size: 11px;
+    line-height: 15px;
+    height: 15px;
+}
+div.perso div.small div.cell.label.histo {
+    font-weight: normal;
+    width: 14px;
+    left: -15px;
+    font-size: 9px;
+    /*padding: 0;*/
+}
+
+div.perso div.cell.realised {
+    margin-bottom: 64px;
+}
+div.perso div.small div.cell.realised {
+    margin-bottom: 31px;
+}
+div.perso div.rotate {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 12px;
+    left: -19px;
+    width: 60px;
+    font-weight: normal;
+}
+div.perso div.cell.histo.label {
+    height: 22px;
+    font-size: 10px;
+}
+div.perso div.cell.histo div.rotate {
+   top: 0px;
+}
+div.perso div.total div.cell.past {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+div.perso div.total div.cell.histo {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 6px;
+}
+
+div.perso div.total {
+    margin-left: 0px;
+}
+div.perso div.currentRow {
+    position:absolute; 
+    width: 99%; 
+    height: 172px; 
+    border: 3px solid; 
+    z-index: 100; 
+    left:-2px; 
+    top:-7px; 
+    border-radius: 6px;
+}/*
+div.ngDialog div.perso div.currentRow {
+    width: 100%; 
+    height: 184px; 
+    z-index: 200; 
+    left:-1px; 
+    top:-4px; 
+}*/
+div.perso div.row.small div.currentRow {
+    width: 96%;
+    height: 96px;
+}
+/*
+div.ngDialog div.perso div.row.small div.currentRow {
+    width: 100%;
+    height: 111px;
+}*/

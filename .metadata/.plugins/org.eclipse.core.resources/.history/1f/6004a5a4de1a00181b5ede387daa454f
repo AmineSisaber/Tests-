@@ -1,0 +1,32 @@
+package com.quiz;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.userdetails.User;
+
+import com.quiz.dao.QuestionRepository;
+import com.quiz.dao.UsersRepository;
+import com.quiz.entity.Question;
+import com.quiz.entity.Users;
+
+@SpringBootApplication
+public class DemoApplication implements CommandLineRunner {
+
+	private QuestionRepository questionRep;
+	private UsersRepository userRep;
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(DemoApplication.class, args);
+
+	}
+
+	@Override
+	public void run(String... arg0) throws Exception {
+
+		Users us = userRep.save(new Users("amine", "123"));
+		
+	}
+}

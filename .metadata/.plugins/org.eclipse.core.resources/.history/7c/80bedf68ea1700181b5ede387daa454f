@@ -1,0 +1,8 @@
+package com.quiz.entity;
+
+public class Question {
+int id ; 
+String question ; 
+String reponse ; 
+	
+}

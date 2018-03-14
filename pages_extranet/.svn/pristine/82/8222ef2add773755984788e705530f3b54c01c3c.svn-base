@@ -1,0 +1,183 @@
+html { background-color: #FFFFFF; }
+body {
+/*     background: url('../img/background_test.png') 50% 0% no-repeat;  */
+/*     padding-top:210px;  */
+/*     min-height: 1030px; */
+    background-color: #FFFFFF;
+    font-family: 'Arial';
+/*     margin: 0; */
+}
+#container {
+	width: 930px;
+	margin: 0 auto;
+	background: #ffffff;
+/* 	padding: 7px; */
+/* 	min-height: 1050px; */
+}
+/* div.titleAgenda { */
+/* 	color: */
+/* rgb(224, 69, 128) */
+/* ; */
+/* display: */
+/* inline */
+/* ; */
+/* font-family: */
+/* Arial, Helvetica, sans-serif */
+/* ; */
+/* font-size: */
+/* 16.2px */
+/* ; */
+/* font-weight: */
+/* bold */
+/* ; */
+/* height: */
+/* auto */
+/* ; */
+/* line-height: */
+/* 28px */
+/* ; */
+/* text-rendering: */
+/* optimizeLegibility */
+/* ; */
+/* text-size-adjust: */
+/* 100% */
+/* ; */
+/* margin-bottom: 10px; */
+/* } */
+div.row, div.small.row {
+    text-align: center;
+    color: #424242;
+    font-family: Arial;
+}
+div.cell {
+    background-color: #a0a0a0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+div.cell.past {
+    background-color: #e04580;
+}
+div.cell.histo {
+     background-color: #e0b5c5;
+}
+div.cell.current {
+    background-color: #a0a0a0;
+}
+
+div.cell.small {
+    font-size: 14px;
+}
+h2 {
+    color: #e04580;
+    font-family: Arial;
+    font-size: 16px;
+    padding: 10px;
+    padding-top: 20px;
+}
+.bold { font-weight: bold;}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 90%;
+    box-sizing: content-box;
+    line-height: inherit;
+    font-size: inherit;
+}
+
+div.subtitle {
+    color: rgb(112, 113, 114);
+    font-family: Verdana;
+    font-size:11px;
+    font-weight:normal;
+    /*height:14px;*/
+    line-height:14px;
+    text-align:left;
+    text-size-adjust:100%;
+}
+
+div.subtitle span {
+    border: 2px solid #e04580;
+    background-color: #e04580;
+    color: #FFFFFF;
+}
+div.subtitle span.planified {
+    border-color: #a0a0a0;
+    background-color: #a0a0a0;
+}
+
+div.subtitle span.histo {
+    border-color: #e0b5c5;
+    background-color: #e0b5c5;
+}
+
+.angucomplete-holder {
+    position: absolute; z-index: 500;
+    width: 100%;
+    text-align: left;
+    margin-right: -10px;
+}
+.angucomplete-holder input {
+    padding: 4px 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.angucomplete-title {
+    padding: 3px;
+}
+
+.angucomplete-dropdown {
+    overflow-y: auto;
+    max-height: 200px;
+    background-color: #FFFFFF;
+    z-index: 500;
+    padding: 5px;
+    cursor: pointer;
+}
+
+div.zero { color : #c1bfbf; }
+div.past.zero { color : #e08cac; }
+div.histo.zero { color: #eae0e4; }
+
+div.seasonChoice {
+	width: 85%;
+	position:relative;
+	margin: 10px auto;
+	border: 1px solid #cccccc;
+	clear: both;
+	height:30px;
+	margin-top: 30px;
+}
+
+div.seasonNoChoice {
+	width: 85%;
+	position:relative;
+	margin: 10px auto;
+	clear: both;
+	height:30px;
+/* 	margin-top: 30px; */
+}
+
+div.seasonChoice div {
+	float:left;
+	width:50%;
+	text-align: center;
+	font-size: 15px;
+	border-right: 1px solid #cccccc;
+	vertical-align: middle;
+	line-height: 30px;
+}
+div.seasonChoice div:hover {
+	cursor: pointer;
+}
+div.seasonChoice div:last-child {
+	border-right:0px;
+	margin-right:-1px;
+}
+
+div.seasonChoice div.currentSeason {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #cccccc;
+}

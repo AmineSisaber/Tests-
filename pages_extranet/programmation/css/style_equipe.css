@@ -1,0 +1,255 @@
+
+div.equipe div.row {
+    float:left;
+    text-align: center;
+    position: relative;
+    font-size: 15px;
+}
+
+div.equipe div.row div.head {
+    font-size: 13px;
+}
+div.equipe div.cell {
+    border-left: 1px solid #FFFFFF;
+    padding: 0;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: bold;
+    height:30px;
+}
+div.equipe div.row:first-child div.cell {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    font-size: 12px;
+    background-color: #e04580;
+    text-align:left;
+    overflow: hidden;
+    padding-left: 10px;
+    cursor: pointer;
+}
+div.equipe div.cell.past.histo {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-right-width: 1px;
+}
+div.equipe div.cell.past.last {
+    border-top-right-radius: 6px;
+}
+div.equipe div.cell.current div.past {
+    background-color: #e04580;
+}
+div.equipe div.row.small {
+    font-size: 12px;
+}
+div.equipe div.row.small div.cell {
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+div.equipe div.line {
+    width:85%;
+    padding: 0;
+    margin: 2px auto; 
+    clear: both;
+    position: relative;
+    font-size: 15px;
+    height: 30px;
+}
+div.equipe div.line.small {
+     height: 22px;
+}
+
+div.equipe div.cell.current.label {
+    border-bottom-left-radius: 6px;
+}
+div.equipe div.row.small:last-child div.cell{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+div.equipe div.cell.label {
+    height: 60px; 
+    padding: 0; 
+    font-size: 12px; 
+    text-align: center; 
+    left:-21px; 
+    width:20px; 
+    position: absolute;
+}
+div.equipe div.rotate {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 12px;
+    left: -19px;
+    width: 60px;
+    font-weight: normal;
+}
+
+div.equipe div.small div.cell.label {
+    height: inherit;
+    font-weight: normal;
+    width: 14px;
+    left: -15px;
+    font-size: 11px;
+    /*padding: 0;*/
+}
+
+div.equipe div.small.row div.cell {
+    font-size: 12px;
+    padding: 0;
+    line-height: 22px;
+    height: 22px;
+}
+
+div.equipe div.small.row:first-child div.cell {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    font-size: 12px;
+    background-color: #e04580;
+    text-align:left;
+    overflow: hidden;
+    padding: 0;
+    padding-left: 10px;
+}
+
+div.equipe div.row.total div.cell, div.row.total div.head {
+    margin-left: 5px;
+}
+
+div.equipe div.line.histo div.row:first-child div.cell.histo {
+    background-color: #e0b5c5;
+}
+div.equipe div.line.histo.first div.row:last-child div.cell.histo {
+    border-top-right-radius: 6px;
+}
+
+/******** CHART *********************/
+div#graphic {
+	width: 82%;
+	margin:10px auto;
+	padding: 10px 13px;;
+	border: 1px solid #CCCCCC;
+	margin-bottom: 20px;
+	position: relative;
+	height: 273px;
+}
+
+div.graphic-title {
+	text-align: center;
+	width:100%;
+/* 	font-size: 13px; */
+	font-weight: bold;
+}
+
+div.graphic {
+	width:18%;
+	float: left;
+	padding: 0 1%;
+	position: relative;
+}
+
+div.graphic-left {
+	width:50%;
+	float: left;
+/* 	margin-left: 2.5%; */
+	position: relative;
+}
+div.graphic-right {
+	width:50%;
+	float: right;
+/* 	margin-left: 2.5%; */
+	position: relative;
+	border-left: 1px solid #5d73a5;
+	margin-left: -1px;
+}
+
+div.graphic:FIRST-CHILD {
+	margin-left: 0px;
+}
+
+.chart {
+  position:relative;
+  height: 100%;
+  width: 100%;
+  margin:auto;
+}
+.chart-title {
+	text-align: center;
+	width:100%;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+div.graphic-left .chart-title, div.graphic-right .chart-title {
+	font-size: 12px;
+}
+.chartjs-legend {
+	text-align: center;
+	width:100%;
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+
+.chartjs-effectif {
+	text-align: center;
+	width:100%;
+	font-weight: bold;
+	height: 60px;
+	margin-top: -60px;
+	font-size: 15px;
+	z-index: 10000;
+}
+
+.chartjs-effectif img { height: 16px; padding-left: 2px;}
+
+.chart-circle {
+   width: 45px;
+   height: 30px;
+   background: #48bac2; 
+   -moz-border-radius: 70px; 
+   -webkit-border-radius: 70px; 
+   border-radius: 70px;
+   font-weight: bold;
+   color: #FFFFFF;
+   margin: 2px auto;
+   text-align: center;
+   vertical-align: middle;
+   padding-top: 14px;
+}
+
+div.monthBar {
+	background-color: #48bac2;
+	color: #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	font-size: 10px;
+	padding: 3px 2px;
+	margin-bottom: 11px;
+}
+
+div.monthBar .month {
+	float: left;
+}
+
+div.monthBar .month.second {
+	border-left: 1px solid #FFFFFF;
+	margin-left: -1px;
+}
+
+div.monthBar .month span {
+	padding-left: 5px;
+}
+
+div.dayBar {
+	float: left;
+	width: 20%;
+	font-size: 10px;
+}
+
+div.dayBar span { padding-left: 3px;}
+
+div.graphic:FIRST-CHILD div.monthBar.monthChange {
+	border-left: 0;
+}

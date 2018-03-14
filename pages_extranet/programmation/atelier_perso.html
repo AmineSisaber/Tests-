@@ -1,0 +1,68 @@
+<div style="padding-top: 30px;" class="perso">
+	<div class="subtitle" ng-show="name" style="padding: 10px 50px; font-weight: bold; font-size: 13px;">{{ name }}</div>
+    <div ng-show="months">
+        <div class="line" style="text-align:center; font-weight: bold;">
+             {{ language.TOTAL_MONTH_COUNT }}
+        </div>
+        <div class="line">
+            <div ng-repeat="(key, month) in months" class="row" ng-class="{planified: !monthRealised(key) &&  key!=currMonth}" row-width="100/(monthCount+1)">
+                <div ng-show="key==currMonth" class="currentRow" >&nbsp;</div>
+                <div class="head" ng-class="{bold: key==currMonth}">{{ month.month | month}}</div>
+                <div ng-show="$first" class="cell past label">
+                    <div class="rotate">{{ language.REALIZED }}</div>
+                </div>
+                <div ng-show="key==currMonth || monthRealised(key)" class="cell past" ng-class="{last: key==currMonth, realised: monthRealised(key)}">
+                    {{ (monthRealised(key) || key==currMonth) ? month.realized : '' }}
+                </div>
+                <div ng-show="key==currMonth" class="cell current label">
+                    <div class="rotate">{{ language.PLANIFIED_SHORT }}</div>
+                </div>
+                <div ng-show="!monthRealised(key)" class="cell" ng-class="{current: key==currMonth}">
+                    {{ !monthRealised(key) ? month.planified : '' }}
+                </div>
+                <div ng-show="$first" class="cell past label histo">
+                    <div class="rotate">{{ language.HISTO_SHORT }}</div>
+                </div>
+                <div class="cell past histo">
+                    {{ month.histo }}
+                </div>
+            </div>
+             <div class="row total" row-width="100/(monthCount+1)">
+                 <div class="head"> {{ language.TOTAL }}</div>
+                 <div class="cell past">
+                    {{ realizedSum }}
+                </div>
+                 <div class="cell">
+                    {{ planifiedSum }}
+                </div>
+                 <div class="cell past last histo">
+                    {{ histoSum }}
+                </div>
+            </div>
+        </div>
+        <div class="line" style="text-align:center; font-weight: bold; padding-top: 60px;">
+             {{ language.TOTAL_WEEK_COUNT }}
+        </div>
+        <div class="line">
+            <div ng-repeat="(key, week) in weeks" class="row small" ng-class="{planified: !weekRealised(key) &&  key!=currWeek}" row-width="100/weekCount">
+                <div ng-show="key==currWeek" class="currentRow" >&nbsp;</div>
+                <div class="head" ng-class="{bold: key==currWeek}">{{ week.week }}</div>
+                <div ng-show="$first" class="cell past label">{{ language.REALIZED_SHORT | limitTo: 1 }}</div>
+                <div ng-show="key==currWeek || weekRealised(key)" class="cell past" ng-class="{last: key==currWeek, realised: weekRealised(key)}">
+                    {{ (weekRealised(key) || key==currWeek) ? week.realized : '' }}
+                </div>
+                <div ng-show="key==currWeek" class="cell current label">{{ language.PLANIFIED_SHORT | limitTo: 1 }}</div>
+                <div ng-show="!weekRealised(key)" class="cell" ng-class="{current: key==currWeek}">
+                    {{ !weekRealised(key) ? week.planified : '' }}
+                </div>
+                <div ng-show="$first" class="cell past label histo">
+                    {{ language.HISTO_SHORT }}
+                </div>
+                <div class="cell past histo">
+                    {{ week.histo }}
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 130px; font-size: 12px; font-style: italic; padding: 5px;">{{ language.DATE_UPDATED }} {{ dateLoading*1000 | date:language.FORMAT_DATE}}</div>
+    </div>
+</div>

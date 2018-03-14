@@ -1,0 +1,24 @@
+{
+  "name": "page_extranet",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/js/",
+    "test",
+    "tests",
+    "js"
+  ],
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-smart-table": "~2.1.4",
+    "ngDialog": "~0.5.4",
+    "angular-xeditable": "~0.1.9",
+    "jquery": "~2.1.4"
+  }
+}

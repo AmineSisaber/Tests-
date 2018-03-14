@@ -1,0 +1,61 @@
+<form>
+<table>
+	<tr>
+		<th>Civilité</th>
+		<td>
+			<select ng-model="prospect.civilite">
+				<option>mme</option>
+				<option>m</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Nom</th>
+		<td><input type="text" ng-model="prospect.nom" size="32"/></td>
+	</tr>
+	<tr>
+		<th>Prenom</th>
+		<td><input type="text" ng-model="prospect.prenom" size="32" /></td>
+	</tr>
+	<tr>
+		<th>Adresse</th>
+		<td><input type="text" ng-model="prospect.adresse" size="32" /></td>
+	</tr>
+	<tr>
+		<th>Ville</th>
+		<td><input type="text" ng-model="prospect.ville" size="32" /></td>
+	</tr>
+	<tr>
+		<th>Pays</th>
+		<td>{{ prospect.pays }}</td>
+	</tr>
+	<tr>
+		<th>E-mail</th>
+		<td><input type="text" ng-model="prospect.email" size="32" /></td>
+	</tr>
+	<tr>
+		<th>Téléphone</th>
+		<td><input type="text" ng-model="prospect.tel" /></td>
+	</tr>
+	<tr>
+		<th>Date de création</th>
+		<td>{{ prospect.datesoumission }}</td>
+	</tr>
+	<tr>
+		<th>Statut</th>
+		<td>
+			<select ng-model="prospect.statu">
+				<option ng-repeat="option in statuts" value="{{option}}">{{option}}</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>Commentaire</th>
+		<td><textarea ng-model="prospect.commentaire" rows="5" cols="60"/></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td><button ng-click="updateHotesse(prospect);">Enregistrer</button></td>
+	</tr>
+</table>
+</form>
